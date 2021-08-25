@@ -23,7 +23,6 @@ const create = async (req, res) => {
                 description: err
             })
         });
-
 };
 
 const get = async (req, res) => {

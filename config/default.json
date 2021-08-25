@@ -1,3 +1,5 @@
 {
-    "databaseUrl": "mongodb+srv://syndicateadmin:syndicatecrew@sweet-paws.n6vga.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    "root": "/api",
+    "databaseUrl": "mongodb+srv://syndicateadmin:syndicatecrew@sweet-paws.n6vga.mongodb.net/SweetPawsDatabase?retryWrites=true&w=majority",
+    "port": 5000
 }
