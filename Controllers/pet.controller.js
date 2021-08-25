@@ -92,10 +92,10 @@ const update = async (req, res) => {
             if (result == null) {
                 res.json({
                     status: "Unsuccessful!",
-                    description: "Pet not found!"
+                    description: "No Pets Found!"
                 });
             } else {
-                workshop.findOne({ _id: req.params.id }).then(result => {
+                pet.findOne({ _id: req.params.id }).then(result => {
                     res.status(200).json({
                         status: "Successful!",
                         results: result
@@ -105,10 +105,10 @@ const update = async (req, res) => {
         })
         .catch(err => {
             res.json({
-                status: "Error",
+                status: "Error!",
                 description: err
             });
         });
-};
+}
 
 module.exports = { create, get, getById, remove, update };
