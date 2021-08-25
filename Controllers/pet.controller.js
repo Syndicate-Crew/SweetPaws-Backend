@@ -72,4 +72,43 @@ const getById = async (req, res) => {
         });
 };
 
-module.exports = { create, get, getById };
+const remove = async (req, res) => {
+    await pet.findOneAndRemove({ _id: req.params.id })
+        .then(result => res.status(200).json({
+            status: "Successful!",
+            results: result
+        }))
+        .catch(err => {
+            res.json({
+                status: "Error!",
+                description: err
+            });
+        });
+};
+
+const update = async (req, res) => {
+    await pet.findOneAndUpdate({ _id: req.params.id }, req.body).
+        then(result => {
+            if (result == null) {
+                res.json({
+                    status: "Unsuccessful!",
+                    description: "Pet not found!"
+                });
+            } else {
+                workshop.findOne({ _id: req.params.id }).then(result => {
+                    res.status(200).json({
+                        status: "Successful!",
+                        results: result
+                    })
+                })
+            }
+        })
+        .catch(err => {
+            res.json({
+                status: "Error",
+                description: err
+            });
+        });
+};
+
+module.exports = { create, get, getById, remove, update };
