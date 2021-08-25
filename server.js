@@ -10,8 +10,8 @@ const config = require("config");
  * Route Imports
  *****************************************************************************************************************************/
 const petRoute = require("./Routes/pet.route");
-// const daycareRoute = require("./Routes/daycare.route");
-// const channelRoute = require("./Routes/channel.route");
+const daycareRoute = require("./Routes/daycare.route");
+const channelRoute = require("./Routes/channel.route");
 // const userRoute = require("./Routes/user.route");
 /*****************************************************************************************************************************
  * Database Connection
@@ -34,8 +34,8 @@ connection.once("open", () => {
  * Routes
  *****************************************************************************************************************************/
 router.use("/pet", petRoute);
-// router.use("/daycare", daycareRoute);
-// router.use("/channel", channelRoute);
+router.use("/daycare", daycareRoute);
+router.use("/channel", channelRoute);
 // router.use("/user", userRoute);
 
 app.use(config.get("root"), router);

@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const DaycareSchema = new mongoose.Schema({
     owner: { type: String, required: true, trim: true },
     pet: { type: String, required: true, trim: true },
