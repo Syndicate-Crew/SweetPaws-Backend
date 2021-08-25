@@ -5,7 +5,7 @@ const DaycareSchema = new mongoose.Schema({
     pet: { type: String, required: true, trim: true },
     email: { type: String, required: true, trim: true },
     days: { type: Number, required: true },
-    packages: [{ type: mongoose.Schema.Types.ObjectId, required: false, ref: 'packages' }]
+    package: { type: String, required: true, trim: true },
 })
 
 const Daycare = mongoose.model('daycares', DaycareSchema);
