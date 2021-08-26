@@ -36,7 +36,7 @@ connection.once("open", () => {
  *****************************************************************************************************************************/
 router.use("/pet", petRoute);
 router.use("/daycare", daycareRoute);
-// router.use("/user", userRoute);
+router.use("/user", userRoute);
 
 app.use('/cslot', cslot());
 app.use('/capp', capp());
