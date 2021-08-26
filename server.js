@@ -11,8 +11,9 @@ const config = require("config");
  *****************************************************************************************************************************/
 const petRoute = require("./Routes/pet.route");
 const daycareRoute = require("./Routes/daycare.route");
-const channelRoute = require("./Routes/channel.route");
 // const userRoute = require("./Routes/user.route");
+const cslot = require("./Routes/channel.route");
+const capp = require('./Routes/appointment.route');
 /*****************************************************************************************************************************
  * Database Connection
  *****************************************************************************************************************************/
@@ -35,8 +36,10 @@ connection.once("open", () => {
  *****************************************************************************************************************************/
 router.use("/pet", petRoute);
 router.use("/daycare", daycareRoute);
-router.use("/channel", channelRoute);
 // router.use("/user", userRoute);
+
+app.use('/cslot', cslot());
+app.use('/capp', capp());
 
 app.use(config.get("root"), router);
 /*****************************************************************************************************************************
