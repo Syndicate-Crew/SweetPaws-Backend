@@ -72,9 +72,24 @@ const updateDaycare = async (req, res) => {
         });
 }
 
+const deleteDaycare = async (req, res) => {
+    await Daycare.findOneAndRemove({ _id: req.params.id })
+        .then(result => res.status(200).json({
+            status: "Successful!",
+            results: result
+        }))
+        .catch(err => {
+            res.json({
+                status: "Error!",
+                description: err
+            });
+        });
+};
+
 module.exports = {
     createDaycare,
     getAllDaycares,
     getDaycareById,
-    updateDaycare
+    updateDaycare,
+    deleteDaycare
 };
