@@ -9,7 +9,6 @@ const config = require("config");
 /*****************************************************************************************************************************
  * Route Imports
  *****************************************************************************************************************************/
-const petRoute = require("./Routes/pet.route");
 const daycareRoute = require("./Routes/daycare.route");
 const userRoute = require("./Routes/user.route");
 const cslot = require("./Routes/channel.route");
@@ -34,7 +33,6 @@ connection.once("open", () => {
 /*****************************************************************************************************************************
  * Routes
  *****************************************************************************************************************************/
-router.use("/pet", petRoute);
 router.use("/daycare", daycareRoute);
 router.use("/user", userRoute);
 router.use("/public/profile_pictures",express.static('./public/profile-pictures'));
