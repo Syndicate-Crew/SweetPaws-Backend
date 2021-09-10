@@ -4,10 +4,15 @@ const create = async (req, res) => {
 
     const newDog = new dog({
         name: req.body.name,
-        type: req.body.type,
         breed: req.body.breed,
         age: req.body.age,
-        description: req.body.description
+        size: req.body.size,
+        gender: req.body.gender,
+        goodWith: req.body.goodWith,
+        careBehaviour: req.body.careBehaviour,
+        coatLength: req.body.coatLength,
+        color: req.body.color,
+        about: req.body.about,
     });
 
     await newDog.save()

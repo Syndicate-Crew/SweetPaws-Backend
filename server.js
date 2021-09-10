@@ -9,7 +9,6 @@ const config = require("config");
 /*****************************************************************************************************************************
  * Route Imports
  *****************************************************************************************************************************/
-const petRoute = require("./Routes/pet.route");
 const dogRoute = require("./Routes/dog.route");
 const catRoute = require("./Routes/cat.route");
 const daycareRoute = require("./Routes/daycare.route");
@@ -36,7 +35,6 @@ connection.once("open", () => {
 /*****************************************************************************************************************************
  * Routes
  *****************************************************************************************************************************/
-router.use("/pet", petRoute);
 router.use("/dog", dogRoute);
 router.use("/cat", catRoute);
 router.use("/daycare", daycareRoute);
