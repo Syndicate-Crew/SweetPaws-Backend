@@ -10,17 +10,16 @@ const User = new mongo.Schema({
         require: true,
         unique: true
     },
-    breed: {
+    password: {
         type: String,
-        require: true
+        required: true
     },
-    age: {
-        type: Number,
-        require: true
-    },
-    description: {
+    phone: {
         type: String,
-        require: true
+        required: true
     },
+    image: {
+        type: Object
+    }
 });
 module.exports = mongo.model("user", User);
