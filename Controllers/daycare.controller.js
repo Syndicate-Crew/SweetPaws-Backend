@@ -47,8 +47,49 @@ const getDaycareById = async (req, res) => {
         });
 };
 
+const updateDaycare = async (req, res) => {
+    await Daycare.findOneAndUpdate({ _id: req.params.id }, req.body).
+        then(result => {
+            if (result == null) {
+                res.json({
+                    status: "Unsuccessful!",
+                    description: "No Daycare Found!"
+                });
+            } else {
+                Daycare.findOne({ _id: req.params.id }).then(result => {
+                    res.status(200).json({
+                        status: "Successful!",
+                        results: result
+                    })
+                })
+            }
+        })
+        .catch(err => {
+            res.json({
+                status: "Error!",
+                description: err
+            });
+        });
+}
+
+const deleteDaycare = async (req, res) => {
+    await Daycare.findOneAndRemove({ _id: req.params.id })
+        .then(result => res.status(200).json({
+            status: "Successful!",
+            results: result
+        }))
+        .catch(err => {
+            res.json({
+                status: "Error!",
+                description: err
+            });
+        });
+};
+
 module.exports = {
     createDaycare,
     getAllDaycares,
-    getDaycareById
+    getDaycareById,
+    updateDaycare,
+    deleteDaycare
 };

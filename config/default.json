@@ -1,5 +1,6 @@
 {
     "root": "/api",
     "databaseUrl": "mongodb+srv://syndicateadmin:syndicatecrew@sweet-paws.n6vga.mongodb.net/SweetPawsDatabase?retryWrites=true&w=majority",
-    "port": 5000
+    "port": 5000,
+    "jwtsecret": "Sweet_paws_token_secret"
 }

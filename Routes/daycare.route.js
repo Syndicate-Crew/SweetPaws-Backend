@@ -17,4 +17,8 @@ router.get('/', controller.getAllDaycares);
 
 router.get('/:id', controller.getDaycareById);
 
+router.route("/:id").put(controller.updateDaycare);
+
+router.route("/:id").delete(controller.deleteDaycare);
+
 module.exports = router;

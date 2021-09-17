@@ -1,16 +1,21 @@
-const pet = require("../Models/pet.model");
+const dog = require("../Models/dog.model");
 
 const create = async (req, res) => {
 
-    const newPet = new pet({
+    const newDog = new dog({
         name: req.body.name,
-        type: req.body.type,
         breed: req.body.breed,
         age: req.body.age,
-        description: req.body.description
+        size: req.body.size,
+        gender: req.body.gender,
+        goodWith: req.body.goodWith,
+        careBehaviour: req.body.careBehaviour,
+        coatLength: req.body.coatLength,
+        color: req.body.color,
+        about: req.body.about,
     });
 
-    await newPet.save()
+    await newDog.save()
         .then(results => {
             res.json({
                 status: "Successful!",
@@ -26,7 +31,7 @@ const create = async (req, res) => {
 };
 
 const get = async (req, res) => {
-    await pet.find()
+    await dog.find()
         .then(results => {
             if (Array.isArray(results) && results.length > 0) {
                 res.json({
@@ -37,7 +42,7 @@ const get = async (req, res) => {
             } else {
                 res.json({
                     status: "Successful!",
-                    description: "No Pet Found!"
+                    description: "No Dog Found!"
                 });
             }
         })
@@ -50,7 +55,7 @@ const get = async (req, res) => {
 };
 
 const getById = async (req, res) => {
-    await pet.findOne({ _id: req.params.id })
+    await dog.findOne({ _id: req.params.id })
         .then(results => {
             if (results != null) {
                 res.json({
@@ -60,7 +65,7 @@ const getById = async (req, res) => {
             } else {
                 res.json({
                     status: "Successful!",
-                    description: "No Pets Found!"
+                    description: "No Dogs Found!"
                 });
             }
         })
@@ -73,7 +78,7 @@ const getById = async (req, res) => {
 };
 
 const remove = async (req, res) => {
-    await pet.findOneAndRemove({ _id: req.params.id })
+    await dog.findOneAndRemove({ _id: req.params.id })
         .then(result => res.status(200).json({
             status: "Successful!",
             results: result
@@ -87,15 +92,15 @@ const remove = async (req, res) => {
 };
 
 const update = async (req, res) => {
-    await pet.findOneAndUpdate({ _id: req.params.id }, req.body).
+    await dog.findOneAndUpdate({ _id: req.params.id }, req.body).
         then(result => {
             if (result == null) {
                 res.json({
                     status: "Unsuccessful!",
-                    description: "No Pets Found!"
+                    description: "No Dogs Found!"
                 });
             } else {
-                pet.findOne({ _id: req.params.id }).then(result => {
+                dog.findOne({ _id: req.params.id }).then(result => {
                     res.status(200).json({
                         status: "Successful!",
                         results: result

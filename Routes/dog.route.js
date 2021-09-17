@@ -1,4 +1,4 @@
-const controller = require("../controllers/pet.controller");
+const controller = require("../controllers/dog.controller");
 const router = require("express").Router();
 
 router.route("/").post(controller.create);

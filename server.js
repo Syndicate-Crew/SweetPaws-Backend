@@ -9,9 +9,10 @@ const config = require("config");
 /*****************************************************************************************************************************
  * Route Imports
  *****************************************************************************************************************************/
-const petRoute = require("./Routes/pet.route");
 const daycareRoute = require("./Routes/daycare.route");
-// const userRoute = require("./Routes/user.route");
+const dogRoute = require("./Routes/dog.route");
+const catRoute = require("./Routes/cat.route");
+const userRoute = require("./Routes/user.route");
 const cslot = require("./Routes/channel.route");
 const capp = require('./Routes/appointment.route');
 /*****************************************************************************************************************************
@@ -34,10 +35,11 @@ connection.once("open", () => {
 /*****************************************************************************************************************************
  * Routes
  *****************************************************************************************************************************/
-router.use("/pet", petRoute);
 router.use("/daycare", daycareRoute);
-// router.use("/user", userRoute);
-
+router.use("/dog", dogRoute);
+router.use("/cat", catRoute);
+router.use("/user", userRoute);
+router.use("/public/profile_pictures", express.static('./public/profile-pictures'));
 app.use('/cslot', cslot());
 app.use('/capp', capp());
 
