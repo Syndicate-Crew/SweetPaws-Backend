@@ -8,7 +8,9 @@ const CAppSchema = new mongoose.Schema({
   ptype: { type: String, required: true },
   pname: { type: String, required: true },
   page: { type: String, required: true },
-  message: { type: String, required: true }
+  message: { type: String},
+  action: { type: String},
+  // slotid: { type: String},
 })
 
 const Capp = mongoose.model('Capp', CAppSchema)

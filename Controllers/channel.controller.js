@@ -54,9 +54,31 @@ const deleteSpecificSlot = async (req, res) => {
   })
 }
 
+//Update Specific Slot
+
+const updateSlot = async (req,res) => {
+    await Cslot.findByIdAndUpdate(
+        req.params.id,
+        {
+            $set:req.body
+        },
+        (error)=>{
+            if(error){
+                return res.status(500).json({
+                    error:error
+                });
+            }
+            return res.status(200).json({
+                success:"Update Successfully"
+            })
+        }
+    );
+}
+
 module.exports = {
   createSlot,
   getAllSlots,
   specificSlot,
-  deleteSpecificSlot
+  deleteSpecificSlot,
+  updateSlot,
 }

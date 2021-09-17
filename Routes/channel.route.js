@@ -7,5 +7,6 @@ module.exports = function () {
   router.get('/', controller.getAllSlots)
   router.get('/:id', controller.specificSlot)
   router.delete('/delete/:id', controller.deleteSpecificSlot)
+  router.put('/update/:id', controller.updateSlot)
   return router
 }
