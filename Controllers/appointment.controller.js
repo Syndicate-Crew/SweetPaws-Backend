@@ -1,5 +1,6 @@
 const Capp = require('../Models/appointment.model');
 
+//create appointment
 const createApp = async (req,res) => {
     if(req.body){
         const capp = new Capp(req.body);
@@ -13,6 +14,7 @@ const createApp = async (req,res) => {
     }
 }
 
+//get all app
 const getAllApps = async (req,res) => {
     await Capp.find({})
     .then(data =>{
@@ -27,6 +29,21 @@ const getAllApps = async (req,res) => {
 
 const getPendingApps = async (req,res) => {
     await Capp.find({action:"Pending"})  
+    .then(data =>{
+        res.status(200).send({ data: data });
+    })
+    .catch(error => {
+        res.status(500).send({ error: error.message });
+    });
+}
+
+//get appointments for specific slot
+
+const getAppForSpecificSlot = async (req,res) => {
+
+    let cappid = req.params.id
+
+    await Capp.find({slotid:cappid})  
     .then(data =>{
         res.status(200).send({ data: data });
     })
@@ -60,5 +77,6 @@ module.exports = {
     createApp,
     getAllApps,
     getPendingApps,
+    getAppForSpecificSlot,
     updateApp,
 };

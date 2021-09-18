@@ -10,7 +10,7 @@ const CAppSchema = new mongoose.Schema({
   page: { type: String, required: true },
   message: { type: String},
   action: { type: String},
-  // slotid: { type: String},
+  slotid: { type: String},
 })
 
 const Capp = mongoose.model('Capp', CAppSchema)

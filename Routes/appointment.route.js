@@ -6,6 +6,7 @@ module.exports = function () {
   router.post('/create', controller.createApp)
   router.get('/', controller.getAllApps)
   router.get('/pending', controller.getPendingApps)
+  router.get('/slotapp/:id', controller.getAppForSpecificSlot)
   router.put('/update/:id', controller.updateApp)
   return router
 }
