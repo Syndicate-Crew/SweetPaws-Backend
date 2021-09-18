@@ -73,10 +73,25 @@ const updateApp = async (req,res) => {
     );
 }
 
+//delete Specific App
+const deleteSpecificApp = async (req, res) => {
+    let cappid = req.params.id
+    await Capp.findByIdAndRemove(cappid).exec((error, deleteApp) => {
+      if (error) {
+        return res.status(500).json({ success: false, error })
+      }
+      return res.status(200).json({
+        success: true,
+        deleteApp
+      })
+    })
+  }
+
 module.exports = {
     createApp,
     getAllApps,
     getPendingApps,
     getAppForSpecificSlot,
     updateApp,
+    deleteSpecificApp,
 };

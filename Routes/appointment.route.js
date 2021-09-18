@@ -8,5 +8,6 @@ module.exports = function () {
   router.get('/pending', controller.getPendingApps)
   router.get('/slotapp/:id', controller.getAppForSpecificSlot)
   router.put('/update/:id', controller.updateApp)
+  router.delete('/delete/:id', controller.deleteSpecificApp)
   return router
 }
