@@ -15,6 +15,8 @@ const catRoute = require("./Routes/cat.route");
 const userRoute = require("./Routes/user.route");
 const cslot = require("./Routes/channel.route");
 const capp = require('./Routes/appointment.route');
+const cpay = require('./Routes/channelpay.route');
+
 /*****************************************************************************************************************************
  * Database Connection
  *****************************************************************************************************************************/
@@ -42,6 +44,7 @@ router.use("/user", userRoute);
 router.use("/public/profile_pictures", express.static('./public/profile-pictures'));
 app.use('/cslot', cslot());
 app.use('/capp', capp());
+app.use('/cpay', cpay());
 
 app.use(config.get("root"), router);
 /*****************************************************************************************************************************
