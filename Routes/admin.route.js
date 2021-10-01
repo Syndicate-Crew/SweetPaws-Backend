@@ -27,5 +27,7 @@ router.route("/updateUserImage/:id").put(upload.single("image"), controller.admi
 
 router.route("/updateUserPassword/:id").put(controller.adminChangePassword);
 
+router.route("/deleteUser/:id").delete(controller.deleteUser);
+
 module.exports = router;
 

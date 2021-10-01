@@ -269,5 +269,19 @@ const adminChangePassword = async (req,res) => {
     })
 };
 
-module.exports = { create, get, getById, updateImage, changePassword, updateInfo, signIn, auth, validate, adminUpdateInfo, adminUpdateImage, adminChangePassword }
+const deleteUser = async (req,res) => {
+    await user.findByIdAndRemove({_id: req.params.id})
+    .then(result => {
+        res.json({
+            status: "successful"
+        })
+    })
+    .catch(err => {
+        res.json({
+            error: err
+        })
+    })
+}
+
+module.exports = { create, get, getById, updateImage, changePassword, updateInfo, signIn, auth, validate, adminUpdateInfo, adminUpdateImage, adminChangePassword, deleteUser }
 
