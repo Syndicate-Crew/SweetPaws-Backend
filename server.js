@@ -16,6 +16,7 @@ const userRoute = require("./Routes/user.route");
 const cslot = require("./Routes/channel.route");
 const capp = require('./Routes/appointment.route');
 const cpay = require('./Routes/channelpay.route');
+const adminRoute = require('./Routes/admin.route');
 
 /*****************************************************************************************************************************
  * Database Connection
@@ -41,6 +42,7 @@ router.use("/daycare", daycareRoute);
 router.use("/dog", dogRoute);
 router.use("/cat", catRoute);
 router.use("/user", userRoute);
+router.use("/admin", adminRoute);
 router.use("/public/profile_pictures", express.static('./public/profile-pictures'));
 app.use('/cslot', cslot());
 app.use('/capp', capp());
