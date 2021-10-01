@@ -13,6 +13,7 @@ const create = async (req, res) => {
         coatLength: req.body.coatLength,
         color: req.body.color,
         about: req.body.about,
+        image: req.file.filename,
     });
 
     await newDog.save()
@@ -115,5 +116,20 @@ const update = async (req, res) => {
             });
         });
 }
+const updateImage = async (req, res) => {
+    await user.updateOne({ _id: req.params.id }, { "image": req.file.filename })
+        .then(result => {
+            res.json({
+                status: "successful",
+                image: req.file.filename
+            })
+        })
+        .catch(err => {
+            res.json({
+                status: "error",
+                error: err
+            })
+        })
+}
 
-module.exports = { create, get, getById, remove, update };
+module.exports = { create, get, getById, remove, update, updateImage };

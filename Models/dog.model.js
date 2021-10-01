@@ -41,5 +41,8 @@ const Dog = new mongo.Schema({
         type: String,
         require: true
     },
+    image: {
+        type: Object
+    },
 });
 module.exports = mongo.model("Dog", Dog);

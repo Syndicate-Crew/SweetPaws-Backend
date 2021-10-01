@@ -44,6 +44,8 @@ router.use("/cat", catRoute);
 router.use("/user", userRoute);
 router.use("/admin", adminRoute);
 router.use("/public/profile_pictures", express.static('./public/profile-pictures'));
+router.use("/public/dog-pictures", express.static('./public/dog-pictures'));
+router.use("/public/cat-pictures", express.static('./public/cat-pictures'));
 app.use('/cslot', cslot());
 app.use('/capp', capp());
 app.use('/cpay', cpay());
