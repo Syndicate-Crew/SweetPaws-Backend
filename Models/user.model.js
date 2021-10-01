@@ -20,6 +20,9 @@ const User = new mongo.Schema({
     },
     image: {
         type: Object
+    },
+    joined: {
+        type: String
     }
 });
 module.exports = mongo.model("user", User);
